@@ -1,6 +1,7 @@
 // PlanetRenox.com | github.com/PlanetRenox   
 // Contact: planetrenox@pm.me 
 
+import io.github.pixee.security.Newlines;
 import java.io.BufferedOutputStream;
 import java.io.File;
 
@@ -75,7 +76,7 @@ public class ControllerServlet extends HttpServlet {
 
 		if (request.getRequestURI().substring(3).equals("ControllerServlet")) {
 			response.setStatus(307);
-			response.setHeader("Location", request.getParameter("path"));
+			response.setHeader("Location", Newlines.stripAll(request.getParameter("path")));
 			return;
 		}
 
